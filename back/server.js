@@ -34,6 +34,9 @@ db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to auth base application." });
 });
+require('./app/routes/auth-routes')(app);
+require('./app/routes/user-routes')(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
